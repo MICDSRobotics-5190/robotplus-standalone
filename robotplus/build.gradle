@@ -21,3 +21,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation 'com.android.support:appcompat-v7:23.0.0'
 }
+
+// For publishing on GitHub via JitPack.
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.MICDSRobotics-5190'
+version = '1.0'
