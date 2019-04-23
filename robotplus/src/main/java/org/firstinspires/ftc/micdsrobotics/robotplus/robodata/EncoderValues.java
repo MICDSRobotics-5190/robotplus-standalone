@@ -2,6 +2,7 @@ package org.firstinspires.ftc.micdsrobotics.robotplus.robodata;
 
 /**
  * Created by amigala on 4/12/2017.
+ * TODO: Move this stuff into the Motor enum. Doesn't work for every motor.
  */
 
 public interface EncoderValues {
@@ -21,7 +22,7 @@ public interface EncoderValues {
     int MAX_SPEED = (int)((GEAR_BOX_RATIO * PULSES_PER_REVOLUTION) / DRIVETRAIN_GEAR_RATIO);
 
     // Launcher rotations
-    final int FULL_ROTATION = (int)(DRIVETRAIN_GEAR_RATIO * COUNTS_PER_REVOLUTION * REAL_WORLD_CONSTANT);
+    int FULL_ROTATION = (int)(DRIVETRAIN_GEAR_RATIO * COUNTS_PER_REVOLUTION * REAL_WORLD_CONSTANT);
 
 
 }

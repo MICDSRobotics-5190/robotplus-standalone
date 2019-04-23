@@ -6,6 +6,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 
 /**
  * Loads the targets
+ * TODO: This is fine for now, but it needs to be made more general for games other than Relic Recovery.
  */
 public class TrackerLoader {
 
@@ -29,7 +30,7 @@ public class TrackerLoader {
      * @param v vuforia instance
      * @param asset the name of asset to load from
      */
-    public TrackerLoader(VuforiaLocalizer v, String asset) {
+    TrackerLoader(VuforiaLocalizer v, String asset) {
         this.vuforia = v;
         this.trackables = this.vuforia.loadTrackablesFromAsset(asset);
 

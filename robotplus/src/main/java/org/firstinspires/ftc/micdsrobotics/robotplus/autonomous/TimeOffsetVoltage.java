@@ -2,28 +2,19 @@ package org.firstinspires.ftc.micdsrobotics.robotplus.autonomous;
 
 import android.util.Log;
 
+import org.firstinspires.ftc.micdsrobotics.robotplus.hardware.Robot;
+
 /**
  * Calculates the delay time necessary for a given voltage
  * @author Alex M, Blake A
  * @since 1/22/18
  */
 public class TimeOffsetVoltage {
-    // function is f(x) = 2.7669x + 108.852
-    // new function is f(x) = 5.6417x - 33.162
-
-    /**
-     * This will calculate the distance that the robot will travel in one second based on the voltage
-     * @param voltage the voltage to be calculated
-     * @return the distance
-     */
-    private static double calculateDistanceVoltage(double voltage) {
-        Log.i("[TimeTest]", "Distance Voltage: " + String.valueOf((2.7669 * voltage) + 113.852));
-        return ((5.6417 * voltage) - 33.162);
-    }
+    // Utility class, so private constructor, à la java.lang.Math
+    private TimeOffsetVoltage() { }
 
     /**
      * Corrects the voltage based on the velocity of the robot; it is a primer for the DistanceVoltage function
-     * @see TimeOffsetVoltage#calculateDistanceVoltage(double)
      * @param voltage the current voltage of the robot
      * @param velocity the velocity of the robot
      * @return the primed voltage
@@ -31,7 +22,7 @@ public class TimeOffsetVoltage {
      */
     private static double timeVoltage(double voltage, double velocity) {
         System.out.println(velocity * voltage);
-        Log.i("[TimeTest]", "TimeVoltage: " + String.valueOf(velocity * voltage));
+        Log.i("[TimeTest]", "TimeVoltage: " + velocity * voltage);
         return velocity * voltage;
     }
 
@@ -48,11 +39,12 @@ public class TimeOffsetVoltage {
 
     /**
      * Calculates the delay time to go at a given distance. Note that it only works for a velocity of 1
+     * @param robot the robot that will move accurately
      * @param voltage the voltage that the robot is currently at
      * @param desiredDistance the distance (in cm) that the robot should go
      * @return the delay time in ms
      */
-    public static long calculateDistance(double voltage, double desiredDistance) {
-        return (long)calculateCorrectedTime(calculateDistanceVoltage(voltage), desiredDistance - 10);
+    public static long calculateDistance(Robot robot, double voltage, double desiredDistance) {
+        return (long)calculateCorrectedTime(robot.voltageDistanceAdapter(voltage), desiredDistance - 10);
     }
 }
