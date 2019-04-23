@@ -19,7 +19,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation 'com.android.support:appcompat-v7:23.0.0'
 }
 
 // For publishing on GitHub via JitPack.
