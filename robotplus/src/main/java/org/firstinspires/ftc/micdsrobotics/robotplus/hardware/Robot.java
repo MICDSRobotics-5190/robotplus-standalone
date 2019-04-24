@@ -2,13 +2,15 @@ package org.firstinspires.ftc.micdsrobotics.robotplus.hardware;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.micdsrobotics.robotplus.autonomous.VoltageDistanceAdapter;
+
 /**
  * Class representing the entire robot for the season.
  * Refactored during 2019 off-season to allow minimum modifications to robotplus.
  * @since 4/10/17
  * @author Blake Abel, Alex Migala, Nick Clifford
  */
-public abstract class Robot {
+public abstract class Robot implements VoltageDistanceAdapter {
     /**
      * the Robot's drivetrain (can be any type)
      */
@@ -19,14 +21,6 @@ public abstract class Robot {
      * @param hardwareMap the hardware map containing configured devices
      */
     public abstract void initHardware(HardwareMap hardwareMap);
-
-    /**
-     * Calculates the distance that the robot will travel in one second based on the voltage.
-     * @see org.firstinspires.ftc.micdsrobotics.robotplus.autonomous.TimeOffsetVoltage#calculateDistance(Robot, double, double)
-     * @param voltage the voltage to be calculated
-     * @return the distance
-     */
-    public abstract double voltageDistanceAdapter(double voltage);
 
     /**
      * Stops the robot completely.

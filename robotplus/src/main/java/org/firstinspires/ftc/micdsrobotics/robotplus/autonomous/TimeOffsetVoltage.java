@@ -2,8 +2,6 @@ package org.firstinspires.ftc.micdsrobotics.robotplus.autonomous;
 
 import android.util.Log;
 
-import org.firstinspires.ftc.micdsrobotics.robotplus.hardware.Robot;
-
 /**
  * Calculates the delay time necessary for a given voltage
  * @author Alex M, Blake A
@@ -39,12 +37,12 @@ public class TimeOffsetVoltage {
 
     /**
      * Calculates the delay time to go at a given distance. Note that it only works for a velocity of 1
-     * @param robot the robot that will move accurately
+     * @param adapter the adapter that provides
      * @param voltage the voltage that the robot is currently at
      * @param desiredDistance the distance (in cm) that the robot should go
      * @return the delay time in ms
      */
-    public static long calculateDistance(Robot robot, double voltage, double desiredDistance) {
-        return (long)calculateCorrectedTime(robot.voltageDistanceAdapter(voltage), desiredDistance - 10);
+    public static long calculateDistance(VoltageDistanceAdapter adapter, double voltage, double desiredDistance) {
+        return (long)calculateCorrectedTime(adapter.voltageToDistance(voltage), desiredDistance - 10);
     }
 }
