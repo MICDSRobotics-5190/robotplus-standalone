@@ -10,11 +10,11 @@ import org.firstinspires.ftc.micdsrobotics.robotplus.autonomous.VoltageDistanceA
  * @since 4/10/17
  * @author Blake Abel, Alex Migala, Nick Clifford
  */
-public abstract class Robot implements VoltageDistanceAdapter {
+public abstract class Robot<D extends Drivetrain> implements VoltageDistanceAdapter {
     /**
      * the Robot's drivetrain (can be any type)
      */
-    private Drivetrain drivetrain;
+    private D drivetrain;
 
     /**
      * Initializes drivetrain and other necessary hardware (i.e. IMU, color sensor).
@@ -33,7 +33,7 @@ public abstract class Robot implements VoltageDistanceAdapter {
      * Returns the drivetrain the robot is set to use
      * @return {@link Robot#drivetrain}
      */
-    public Drivetrain getDrivetrain() {
+    public D getDrivetrain() {
         return drivetrain;
     }
 
@@ -41,7 +41,7 @@ public abstract class Robot implements VoltageDistanceAdapter {
      * Sets the robot's drivetrain. Only used in subclasses for initialization.
      * @param drivetrain {@link Robot#drivetrain}
      */
-    protected void setDrivetrain(Drivetrain drivetrain) {
+    protected void setDrivetrain(D drivetrain) {
         this.drivetrain = drivetrain;
     }
 }
